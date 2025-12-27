@@ -40,10 +40,11 @@ import torch.nn.functional as F
 from utils import *
 from rknnlite.api import RKNNLite
 
-COCO = 1
-#FIRE = 2
-CRACK = 3
-GARBAGE = 5
+COCO = 0
+FIRE = 1
+CRACK = 2
+LICENSE = 3
+GARBAGE = 4
 
 def hex2rgb(h):  # rgb order (PIL)
     return tuple(int(h[1 + i:1 + i + 2], 16) for i in (0, 2, 4))

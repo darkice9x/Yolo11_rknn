@@ -5,10 +5,11 @@ import time
 from utils import *
 from rknnlite.api import RKNNLite
 
-COCO = 1
-FIRE = 2
-CRACK = 3
-LICENSE = 4
+COCO = 0
+FIRE = 1
+CRACK = 2
+LICENSE = 3
+GARBAGE = 4
 
 class YoloDetect(object):
     def __init__(self,

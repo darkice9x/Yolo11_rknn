@@ -1,14 +1,15 @@
+from utils import *
 from yoloseg import *
 from yolodetect import *
 from yolopose import *    
 from yoloobb import *
 
 
-COCO = 1
-FIRE = 2
-CRACK = 3
-LICENSE = 4
-GARBAGE = 5
+COCO = 0
+FIRE = 1
+CRACK = 2
+LICENSE = 3
+GARBAGE = 4
 
 class Yolo(object):
     def __init__(self,
