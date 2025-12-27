@@ -217,7 +217,7 @@
         <string>640</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_7">
+      <widget class="QLabel" name="DS_NMS">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -230,7 +230,7 @@
         <string>DS_NMS_THRESH</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_2">
+      <widget class="QLineEdit" name="DS_NMS_VAL">
        <property name="geometry">
         <rect>
          <x>132</x>
@@ -243,7 +243,7 @@
         <string>0.45</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_8">
+      <widget class="QLabel" name="DS_OBJ">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -256,7 +256,7 @@
         <string>DS_OBJ_THRESH</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_3">
+      <widget class="QLineEdit" name="DS_OBJ_VAL">
        <property name="geometry">
         <rect>
          <x>132</x>
@@ -269,7 +269,7 @@
         <string>0.25</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_9">
+      <widget class="QLabel" name="PO_NMS">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -282,7 +282,7 @@
         <string>PO_NMS_THRESH</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_4">
+      <widget class="QLineEdit" name="PO_NMS_VAL">
        <property name="geometry">
         <rect>
          <x>132</x>
@@ -295,7 +295,7 @@
         <string>0.4</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_10">
+      <widget class="QLabel" name="PO_OBJ">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -308,7 +308,7 @@
         <string>PO_OBJ_THRESH</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_5">
+      <widget class="QLineEdit" name="PO_OBJ_VAL">
        <property name="geometry">
         <rect>
          <x>132</x>
@@ -321,7 +321,7 @@
         <string>0.5</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_6">
+      <widget class="QLineEdit" name="MAX_DETECT_VAL">
        <property name="geometry">
         <rect>
          <x>132</x>
@@ -334,7 +334,7 @@
         <string>300</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_11">
+      <widget class="QLabel" name="MAX_DETECT">
        <property name="geometry">
         <rect>
          <x>8</x>
