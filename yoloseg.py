@@ -378,7 +378,8 @@ class YoloSeg(object):
         start_time = time.time()
         outputs = self.rknn_lite.inference(inputs=[img])
         #print( f'inference time : {(time.time()-start_time)*1000}ms')
-        print_info(f'inference time : {(time.time()-start_time)*1000}ms')
+        self.infertime = (time.time() - start_time)*1000
+        print_info(f'inference time : {self.infertime}ms')
         boxes, classes, scores, seg_img = self.post_process(outputs)
         return boxes, classes, scores, seg_img
     
@@ -408,6 +409,9 @@ class YoloSeg(object):
                                 cv2.FONT_HERSHEY_COMPLEX_SMALL,
                                 0.9, (0, 0, 255), 2)
 
+    def info(self):
+        print_info(f'Inference time: {self.infertime} ms')
+        
     def release(self):
         self.rknn_lite.release()
         print_info(f'RKNN Seg Release!!')

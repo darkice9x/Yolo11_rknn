@@ -284,7 +284,8 @@ class YoloPose(object):
         infer_img = np.expand_dims(infer_img, axis=0)  # add batch dimension
         start_time = time.time()
         outputs = self.rknn_lite.inference(inputs=[infer_img])
-        print_info(f'Inference time: {(time.time() - start_time)*1000} ms')
+        self.infertime = (time.time() - start_time)*1000
+        print_info(f'Inference time: {self.infertime} ms')
 
         predbox = self._postprocess(outputs, size=self.input_size)
 
@@ -425,6 +426,9 @@ class YoloPose(object):
         # Return the calculated angle.
         return angle
     
+    def info(self):
+        print_info(f'Inference time: {self.infertime} ms')
+        
     def release(self):
         self.rknn_lite.release()
         print_info(f'RKNN Pose Release!!')

@@ -322,7 +322,8 @@ class YoloOBB(object):
         print_info('--> Running model')
         start_time = time.time()
         results = self.rknn_lite.inference(inputs=[infer_img])
-        print_info(f'Inference time: {(time.time() - start_time)*1000}ms')
+        self.infertime = (time.time() - start_time)*1000
+        print_info(f'Inference time: {self.infertime}ms')
 
         predbox = self.post_process(results, self.ratio)
 
@@ -346,6 +347,9 @@ class YoloOBB(object):
 
         return self.img_org
     
+    def info(self):
+        print_info(f'Inference time: {self.infertime} ms')
+        
     def release(self):
         self.rknn_lite.release()
         print_info(f'RKNN OBB Release!!')
