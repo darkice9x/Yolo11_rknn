@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'yolo11cDSvQB.ui'
+## Form generated from reading UI file 'yolo11OUGLoz.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.10.0
 ##
@@ -23,15 +23,16 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(640, 480)
+        MainWindow.resize(865, 518)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.horizontalLayout_2 = QHBoxLayout(self.centralwidget)
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.frame = QFrame(self.centralwidget)
         self.frame.setObjectName(u"frame")
-        self.frame.setMinimumSize(QSize(181, 461))
-        self.frame.setMaximumSize(QSize(181, 461))
+        self.frame.setEnabled(True)
+        self.frame.setMinimumSize(QSize(181, 500))
+        self.frame.setMaximumSize(QSize(181, 500))
         self.frame.setFrameShape(QFrame.Shape.StyledPanel)
         self.frame.setFrameShadow(QFrame.Shadow.Raised)
         self.comboBox = QComboBox(self.frame)
@@ -63,7 +64,7 @@ class Ui_MainWindow(object):
         self.label_5.setGeometry(QRect(10, 330, 66, 18))
         self.pushButton = QPushButton(self.frame)
         self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setGeometry(QRect(40, 430, 101, 26))
+        self.pushButton.setGeometry(QRect(40, 460, 101, 26))
         self.pushButton_2 = QPushButton(self.frame)
         self.pushButton_2.setObjectName(u"pushButton_2")
         self.pushButton_2.setGeometry(QRect(10, 66, 161, 26))
@@ -123,6 +124,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.label_4 = QLabel(self.frame_2)
         self.label_4.setObjectName(u"label_4")
+        self.label_4.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         self.horizontalLayout.addWidget(self.label_4)
 
@@ -174,6 +176,6 @@ class Ui_MainWindow(object):
         self.MAX_DETECT_VAL.setText(QCoreApplication.translate("MainWindow", u"300", None))
         self.MAX_DETECT.setText(QCoreApplication.translate("MainWindow", u"MAX_DETECT", None))
         self.label_12.setText(QCoreApplication.translate("MainWindow", u"INFERENCE TIME", None))
-        self.label_4.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
+        self.label_4.setText(QCoreApplication.translate("MainWindow", u"Image", None))
     # retranslateUi
 

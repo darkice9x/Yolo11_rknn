@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>640</width>
-    <height>480</height>
+    <width>865</width>
+    <height>518</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,16 +17,19 @@
    <layout class="QHBoxLayout" name="horizontalLayout_2">
     <item>
      <widget class="QFrame" name="frame">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="minimumSize">
        <size>
         <width>181</width>
-        <height>461</height>
+        <height>500</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
         <width>181</width>
-        <height>461</height>
+        <height>500</height>
        </size>
       </property>
       <property name="frameShape">
@@ -156,7 +159,7 @@
        <property name="geometry">
         <rect>
          <x>40</x>
-         <y>430</y>
+         <y>460</y>
          <width>101</width>
          <height>26</height>
         </rect>
@@ -384,7 +387,10 @@
        <item>
         <widget class="QLabel" name="label_4">
          <property name="text">
-          <string>TextLabel</string>
+          <string>Image</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
          </property>
         </widget>
        </item>

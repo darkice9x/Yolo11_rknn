@@ -286,7 +286,7 @@ class YoloDetect(object):
                     cv2.putText(image, '#{0} {1} {2:.2f}'.format(count_index, self.CLASSES[cl], score),
                                 (x1 , y2 - 6),
                                 cv2.FONT_HERSHEY_COMPLEX_SMALL,
-                                0.9, (0, 0, 255), 2)
+                                0.9, (0, 0, 255), 1)
                 count_index += 1
                 rects.append((int(x1), int(y1), int(x2), int(y2)))
             elif classname == "person":
@@ -297,7 +297,7 @@ class YoloDetect(object):
                         cv2.putText(image, '#{0} {1} {2:.2f}'.format(count_index, self.CLASSES[cl], score),
                                     (x1, y2 - 6),
                                     cv2.FONT_HERSHEY_COMPLEX_SMALL,
-                                    0.9, (0, 0, 255), 2)
+                                    0.9, (0, 0, 255), 1)
                     count_index += 1
                     rects.append((int(x1), int(y1), int(x2), int(y2)))
         

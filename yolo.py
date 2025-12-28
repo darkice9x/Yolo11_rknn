@@ -32,13 +32,32 @@ class Yolo(object):
         self.obb = None
         
         if TASK == "detect" :
-            self.detect = YoloDetect(RK3588_RKNN_MODEL, input_size = input_size, DATASET=DATASET)
+            self.detect = YoloDetect(RK3588_RKNN_MODEL, 
+                                    input_size = input_size, 
+                                    DATASET = DATASET, 
+                                    NMS_THRESH = DS_NMS_THRESH,
+                                    OBJ_THRESH = DS_OBJ_THRESH
+                                    )
         elif TASK == "pose" :
-            self.pose = YoloPose(RK3588_RKNN_MODEL, input_size=input_size, calc_angle = CALC_ANGLE)
+            self.pose = YoloPose(RK3588_RKNN_MODEL, 
+                                input_size = input_size,
+                                objectThresh = PO_OBJ_THRESH,
+                                nmsThresh = PO_NMS_THRESH, 
+                                calc_angle = CALC_ANGLE
+                                )
         elif TASK == "seg" :
-            self.seg = YoloSeg(RK3588_RKNN_MODEL, input_size = input_size, DATASET=DATASET)
+            self.seg = YoloSeg(RK3588_RKNN_MODEL, 
+                            input_size = input_size, 
+                            DATASET = DATASET,
+                            NMS_THRESH = DS_NMS_THRESH,
+                            OBJ_THRESH = DS_OBJ_THRESH
+                            )
         elif TASK == "obb" :
-            self.obb = YoloOBB(RK3588_RKNN_MODEL, input_size = input_size)
+            self.obb = YoloOBB(RK3588_RKNN_MODEL, 
+                            input_size = input_size,
+                            objectThresh = PO_OBJ_THRESH,
+                            nmsThresh = PO_NMS_THRESH
+                            )
 
     def release(self):
         if self.detect is not None :
