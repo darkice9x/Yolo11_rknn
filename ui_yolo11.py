@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'yolo11Uazhbc.ui'
+## Form generated from reading UI file 'yolo11bLifIy.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.10.0
 ##
@@ -79,33 +79,39 @@ class Ui_MainWindow(object):
         self.lineEdit = QLineEdit(self.frame)
         self.lineEdit.setObjectName(u"lineEdit")
         self.lineEdit.setGeometry(QRect(100, 136, 71, 26))
+        self.lineEdit.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
         self.DS_NMS = QLabel(self.frame)
         self.DS_NMS.setObjectName(u"DS_NMS")
         self.DS_NMS.setGeometry(QRect(10, 174, 121, 18))
         self.DS_NMS_VAL = QLineEdit(self.frame)
         self.DS_NMS_VAL.setObjectName(u"DS_NMS_VAL")
         self.DS_NMS_VAL.setGeometry(QRect(132, 170, 40, 26))
+        self.DS_NMS_VAL.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
         self.DS_OBJ = QLabel(self.frame)
         self.DS_OBJ.setObjectName(u"DS_OBJ")
         self.DS_OBJ.setGeometry(QRect(10, 204, 121, 18))
         self.DS_OBJ_VAL = QLineEdit(self.frame)
         self.DS_OBJ_VAL.setObjectName(u"DS_OBJ_VAL")
         self.DS_OBJ_VAL.setGeometry(QRect(132, 200, 40, 26))
+        self.DS_OBJ_VAL.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
         self.PO_NMS = QLabel(self.frame)
         self.PO_NMS.setObjectName(u"PO_NMS")
         self.PO_NMS.setGeometry(QRect(10, 234, 121, 18))
         self.PO_NMS_VAL = QLineEdit(self.frame)
         self.PO_NMS_VAL.setObjectName(u"PO_NMS_VAL")
         self.PO_NMS_VAL.setGeometry(QRect(132, 230, 41, 26))
+        self.PO_NMS_VAL.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
         self.PO_OBJ = QLabel(self.frame)
         self.PO_OBJ.setObjectName(u"PO_OBJ")
         self.PO_OBJ.setGeometry(QRect(10, 264, 121, 18))
         self.PO_OBJ_VAL = QLineEdit(self.frame)
         self.PO_OBJ_VAL.setObjectName(u"PO_OBJ_VAL")
         self.PO_OBJ_VAL.setGeometry(QRect(132, 260, 41, 26))
+        self.PO_OBJ_VAL.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
         self.MAX_DETECT_VAL = QLineEdit(self.frame)
         self.MAX_DETECT_VAL.setObjectName(u"MAX_DETECT_VAL")
         self.MAX_DETECT_VAL.setGeometry(QRect(132, 290, 41, 26))
+        self.MAX_DETECT_VAL.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
         self.MAX_DETECT = QLabel(self.frame)
         self.MAX_DETECT.setObjectName(u"MAX_DETECT")
         self.MAX_DETECT.setGeometry(QRect(8, 294, 121, 18))
@@ -115,6 +121,7 @@ class Ui_MainWindow(object):
         self.lineEdit_7 = QLineEdit(self.frame)
         self.lineEdit_7.setObjectName(u"lineEdit_7")
         self.lineEdit_7.setGeometry(QRect(10, 400, 161, 26))
+        self.lineEdit_7.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
 
         self.horizontalLayout_2.addWidget(self.frame)
 

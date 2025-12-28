@@ -4,8 +4,8 @@ from itertools import groupby
 import cv2
 import numpy as np
 #import gradio as gr
-import tensorflow as tf
-#from ai_edge_litert.interpreter import Interpreter
+#import tensorflow as tf
+from ai_edge_litert.interpreter import Interpreter
 import time
 
 
@@ -77,8 +77,8 @@ class TFliteDemo:
         self.blank = blank
         self.conf_mode = conf_mode
         self.label_dict = load_dict()
-        self.interpreter = tf.lite.Interpreter(model_path=model_path)
-        #self.interpreter = Interpreter(model_path=model_path)
+        #self.interpreter = tf.lite.Interpreter(model_path=model_path)
+        self.interpreter = Interpreter(model_path=model_path)
         self.interpreter.allocate_tensors()
         self.inputs = self.interpreter.get_input_details()
         self.outputs = self.interpreter.get_output_details()

@@ -231,6 +231,9 @@
        <property name="text">
         <string>640</string>
        </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+       </property>
       </widget>
       <widget class="QLabel" name="DS_NMS">
        <property name="geometry">
@@ -256,6 +259,9 @@
        </property>
        <property name="text">
         <string>0.45</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
        </property>
       </widget>
       <widget class="QLabel" name="DS_OBJ">
@@ -283,6 +289,9 @@
        <property name="text">
         <string>0.25</string>
        </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+       </property>
       </widget>
       <widget class="QLabel" name="PO_NMS">
        <property name="geometry">
@@ -308,6 +317,9 @@
        </property>
        <property name="text">
         <string>0.4</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
        </property>
       </widget>
       <widget class="QLabel" name="PO_OBJ">
@@ -335,6 +347,9 @@
        <property name="text">
         <string>0.5</string>
        </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+       </property>
       </widget>
       <widget class="QLineEdit" name="MAX_DETECT_VAL">
        <property name="geometry">
@@ -347,6 +362,9 @@
        </property>
        <property name="text">
         <string>300</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
        </property>
       </widget>
       <widget class="QLabel" name="MAX_DETECT">
@@ -383,6 +401,9 @@
          <width>161</width>
          <height>26</height>
         </rect>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
        </property>
       </widget>
      </widget>
