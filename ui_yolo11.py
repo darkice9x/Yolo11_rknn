@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'yolo11OUGLoz.ui'
+## Form generated from reading UI file 'yolo11Uazhbc.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.10.0
 ##
@@ -24,6 +24,8 @@ class Ui_MainWindow(object):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(865, 518)
+        MainWindow.setMinimumSize(QSize(865, 518))
+        MainWindow.setMaximumSize(QSize(865, 518))
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.horizontalLayout_2 = QHBoxLayout(self.centralwidget)
