@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'yolo11bLifIy.ui'
+## Form generated from reading UI file 'yolo11GdAoKf.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.10.0
 ##
@@ -70,9 +70,11 @@ class Ui_MainWindow(object):
         self.pushButton_2 = QPushButton(self.frame)
         self.pushButton_2.setObjectName(u"pushButton_2")
         self.pushButton_2.setGeometry(QRect(10, 66, 161, 26))
+        self.pushButton_2.setStyleSheet(u"text-align: left;")
         self.pushButton_3 = QPushButton(self.frame)
         self.pushButton_3.setObjectName(u"pushButton_3")
         self.pushButton_3.setGeometry(QRect(10, 350, 161, 26))
+        self.pushButton_3.setStyleSheet(u"text-align: right;")
         self.label_6 = QLabel(self.frame)
         self.label_6.setObjectName(u"label_6")
         self.label_6.setGeometry(QRect(10, 140, 81, 18))
@@ -153,7 +155,7 @@ class Ui_MainWindow(object):
     # setupUi
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Yolo11 RKNN", None))
         self.comboBox.setItemText(0, QCoreApplication.translate("MainWindow", u"Detect", None))
         self.comboBox.setItemText(1, QCoreApplication.translate("MainWindow", u"Pose", None))
         self.comboBox.setItemText(2, QCoreApplication.translate("MainWindow", u"Seg", None))
