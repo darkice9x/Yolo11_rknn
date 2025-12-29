@@ -50,7 +50,8 @@ class Yolo(object):
                             input_size = input_size, 
                             DATASET = DATASET,
                             NMS_THRESH = DS_NMS_THRESH,
-                            OBJ_THRESH = DS_OBJ_THRESH
+                            OBJ_THRESH = DS_OBJ_THRESH,
+                            MAX_DETECT = MAX_DETECT
                             )
         elif TASK == "obb" :
             self.obb = YoloOBB(RK3588_RKNN_MODEL, 
