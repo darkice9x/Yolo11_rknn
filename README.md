@@ -5,6 +5,6 @@
 ## 2. Pose
 ![POSE](results/pose.png)
 ## 3. Seg
-![SEG](results/seg_crack.png)
+![COCO](results/seg_coco.png)![CRACK](results/seg_crack.png)![GARBAGE](results/seg_garbage.png)
 ## 4. OBB
 ![OBB](results/obb.png)
