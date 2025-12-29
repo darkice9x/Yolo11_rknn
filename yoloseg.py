@@ -133,8 +133,8 @@ class YoloSeg(object):
             img_org = cv2.imread(input)
         else:
             img_org = input
-
-        return self.seg(img_org)
+        boxes, classes, scores, seg_img = self.seg(img_org)
+        return boxes, classes, scores, seg_img
 
     def letterbox_reverse_box(self, x1, y1, ratio):
         y1 = int(y1/ratio)
@@ -143,33 +143,31 @@ class YoloSeg(object):
         return [x1, y1]
     
     def letterbox(self, image, bg_color):
-        """
-        letterbox the image according to the specified size
-        :param image: input image, which can be a NumPy array or file path
-        :param size: target size (width, height)
-        :param bg_color: background filling data 
-        :return: processed image
-        """
         if isinstance(image, str):
             image = cv2.imread(image)
 
-        target_width, target_height = self.input_size, self.input_size
-        image_height, image_width, _ = image.shape
+        if image is None:
+            raise ValueError("Input image is None")
 
-        # Calculate the adjusted image size
-        aspect_ratio = min(target_width / image_width, target_height / image_height)
+        image_height, image_width = image.shape[:2]
+
+        aspect_ratio = min(self.input_size / image_width,
+                        self.input_size / image_height)
+
         self.new_width = int(image_width * aspect_ratio)
         self.new_height = int(image_height * aspect_ratio)
 
-        # Use cv2.resize() for proportional scaling
-        image = cv2.resize(image, (self.new_width, self.new_height), interpolation=cv2.INTER_AREA)
+        image = cv2.resize(image, (self.new_width, self.new_height),
+                        interpolation=cv2.INTER_AREA)
 
-        # Create a new canvas and fill it
-        result_image = np.ones((target_height, target_width, 3), dtype=np.uint8) * bg_color
-        #offset_x = (target_width - new_width) // 2
-        #offset_y = (target_height - new_height) // 2
+        result_image = np.ones(
+            (self.input_size, self.input_size, 3),
+            dtype=np.uint8
+        ) * bg_color
+
         result_image[0:self.new_height, 0:self.new_width] = image
         return result_image, aspect_ratio
+
     
     def sigmoid(self, x):
         return 1 / (1 + np.exp(-x))
@@ -308,15 +306,6 @@ class YoloSeg(object):
         seg_img = seg_img_t.numpy()
         seg_img = seg_img > seg_threadhold
         return boxes, classes, scores, seg_img
-
-    def draw(self, image, boxes, scores, classes, label=False):
-        for box, score, cl in zip(boxes, scores, classes):
-            top, left, right, bottom = [int(_b) for _b in box]
-            print("%s @ (%d %d %d %d) %.3f" % (self.CLASSES[cl], top, left, right, bottom, score))
-            cv2.rectangle(image, (top, left), (right, bottom), (255, 0, 0), 2)
-            if label:
-                cv2.putText(image, '{0} {1:.2f}'.format(self.CLASSES[cl], score),
-                            (top, left - 6), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 0, 255), 2)
 
     def _crop_mask(self, masks, boxes):
         """
