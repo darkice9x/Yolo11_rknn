@@ -13,9 +13,6 @@ from rknnlite.api import RKNNLite
 
 CLASSES = ['person']
 
-nmsThresh = 0.4
-objectThresh = 0.5
-
 pose_palette = np.array([[255, 128, 0], [255, 153, 51], [255, 178, 102], [230, 230, 0], [255, 153, 255],
                          [153, 204, 255], [255, 102, 255], [255, 51, 255], [102, 178, 255], [51, 153, 255],
                          [255, 153, 153], [255, 102, 102], [255, 51, 51], [153, 255, 153], [102, 255, 102],
@@ -37,19 +34,19 @@ class DetectBox:
 
 class YoloPose(object):
     def __init__(self,
-                 RKNN_MODEL: str,
-                 input_size=320,
-                 objectThresh=0.5,
-                 nmsThresh=0.4,
-                 calc_angle = True
-                 ) -> None:
+                RKNN_MODEL: str,
+                input_size=320,
+                NMS_THRESH=0.4,
+                OBJ_THRESH=0.5,
+                calc_angle = True
+                ) -> None:
 
         self.rknn_lite = RKNNLite()
         self.input_size = input_size
         #self.box_score = box_score
         #self.kpt_score = kpt_score
-        self.objectThresh = objectThresh
-        self.nmsThresh = nmsThresh
+        self.OBJ_THRESH = OBJ_THRESH
+        self.NMS_THRESH = NMS_THRESH
         self.calc_angle = calc_angle
         self.left_knee_angle = 0 
         self.right_knee_angle = 0
@@ -179,7 +176,7 @@ class YoloPose(object):
                         xmax2 = sort_detectboxs[j].xmax
                         ymax2 = sort_detectboxs[j].ymax
                         iou = self._iou(xmin1, ymin1, xmax1, ymax1, xmin2, ymin2, xmax2, ymax2)
-                        if iou > nmsThresh:
+                        if iou > self.NMS_THRESH:
                             sort_detectboxs[j].classId = -1
         return predBoxs
 
@@ -199,7 +196,7 @@ class YoloPose(object):
         for h in range(model_h):
             for w in range(model_w):
                 for c in range(len(CLASSES)):
-                    if conf[0,c,(h*model_w)+w]>objectThresh:
+                    if conf[0,c,(h*model_w)+w]>self.OBJ_THRESH:
                         xywh_=xywh[0,:,(h*model_w)+w] #[1,64,1]
                         xywh_=xywh_.reshape(1,4,16,1)
                         data=np.array([i for i in range(16)]).reshape(1,1,16,1)

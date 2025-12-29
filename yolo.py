@@ -41,8 +41,8 @@ class Yolo(object):
         elif TASK == "pose" :
             self.pose = YoloPose(RK3588_RKNN_MODEL, 
                                 input_size = input_size,
-                                objectThresh = PO_OBJ_THRESH,
-                                nmsThresh = PO_NMS_THRESH, 
+                                NMS_THRESH = PO_NMS_THRESH, 
+                                OBJ_THRESH = PO_OBJ_THRESH,
                                 calc_angle = CALC_ANGLE
                                 )
         elif TASK == "seg" :
@@ -56,8 +56,8 @@ class Yolo(object):
         elif TASK == "obb" :
             self.obb = YoloOBB(RK3588_RKNN_MODEL, 
                             input_size = input_size,
-                            objectThresh = PO_OBJ_THRESH,
-                            nmsThresh = PO_NMS_THRESH
+                            NMS_THRESH = PO_NMS_THRESH,
+                            OBJ_THRESH = PO_OBJ_THRESH
                             )
 
     def release(self):

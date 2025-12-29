@@ -28,13 +28,13 @@ class YoloOBB(object):
     def __init__(self,
                  RKNN_MODEL: str,
                  input_size=640,
-                 objectThresh=0.5,
-                 nmsThresh=0.4,
+                 NMS_THRESH=0.4,
+                 OBJ_THRESH=0.5,
                  #plot_angle = True
                  ) -> None:
         
-        self.objectThresh = objectThresh
-        self.nmsThresh = nmsThresh
+        self.OBJ_THRESH = OBJ_THRESH
+        self.NMS_THRESH = NMS_THRESH
         self.rknn_lite = RKNNLite()
         self.input_size = input_size
         self.img_org = None
@@ -169,7 +169,7 @@ class YoloOBB(object):
                         p2=self._rotate_rectangle(xmin2, ymin2, xmax2, ymax2, angle2)
                         p2=np.array(p2).reshape(-1)
                         iou=self._intersection(p1, p2)
-                        if iou > self.nmsThresh:
+                        if iou > self.NMS_THRESH:
                             sort_detectboxs[j].classId = -1
         return predBoxs
 
@@ -179,45 +179,6 @@ class YoloOBB(object):
     def _softmax(self, x, axis=-1):
         exp_x = np.exp(x - np.max(x, axis=axis, keepdims=True))
         return exp_x / np.sum(exp_x, axis=axis, keepdims=True)
-    '''
-    def process(self, out,model_w,model_h,stride,angle_feature,index,scale_w=1,scale_h=1):
-        class_num=len(self.CLASSES)
-        angle_feature=angle_feature.reshape(-1)
-        xywh=out[:,:64,:]
-        conf=self._sigmoid(out[:,64:,:])
-        out=[]
-        conf=conf.reshape(-1)
-        for ik in range(model_h*model_w*class_num):
-            if conf[ik]>self.objectThresh:
-                w=ik%model_w
-                h=(ik%(model_w*model_h))//model_w
-                c=ik//(model_w*model_h)
-                xywh_=xywh[0,:,(h*model_w)+w] #[1,64,1]
-                xywh_=xywh_.reshape(1,4,16,1)
-                data=np.array([i for i in range(16)]).reshape(1,1,16,1)
-                xywh_=self._softmax(xywh_,2)
-                xywh_ = np.multiply(data, xywh_)
-                xywh_ = np.sum(xywh_, axis=2, keepdims=True).reshape(-1)
-                xywh_add=xywh_[:2]+xywh_[2:]
-                xywh_sub=(xywh_[2:]-xywh_[:2])/2
-                angle_feature_= (angle_feature[index+(h*model_w)+w]-0.25)*3.1415927410125732
-                angle_feature_cos=math.cos(angle_feature_)
-                angle_feature_sin=math.sin(angle_feature_)
-                xy_mul1=xywh_sub[0] * angle_feature_cos
-                xy_mul2=xywh_sub[1] * angle_feature_sin
-                xy_mul3=xywh_sub[0] * angle_feature_sin
-                xy_mul4=xywh_sub[1] * angle_feature_cos
-                xy=xy_mul1-xy_mul2,xy_mul3+xy_mul4
-                xywh_1=np.array([(xy_mul1-xy_mul2)+w+0.5,(xy_mul3+xy_mul4)+h+0.5,xywh_add[0],xywh_add[1]])
-                xywh_=xywh_1*stride
-                xmin = (xywh_[0] - xywh_[2] / 2) * scale_w
-                ymin = (xywh_[1] - xywh_[3] / 2) * scale_h
-                xmax = (xywh_[0] + xywh_[2] / 2) * scale_w
-                ymax = (xywh_[1] + xywh_[3] / 2) * scale_h
-                box = DetectBox(c,conf[ik], xmin, ymin, xmax, ymax,angle_feature_)
-                out.append(box)
-        return out
-    '''
 
     def process(self, out, model_w, model_h, stride, angle_feature, index, scale_w=1, scale_h=1):
         class_num = len(self.CLASSES)
@@ -228,7 +189,7 @@ class YoloOBB(object):
         xywh = out[:, :64, :]
         conf = self._sigmoid(out[:, 64:, :]).reshape(-1)
 
-        valid_idx = np.where(conf > self.objectThresh)[0]
+        valid_idx = np.where(conf > self.OBJ_THRESH)[0]
         if valid_idx.size == 0:
             return []
 
