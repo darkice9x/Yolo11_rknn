@@ -306,10 +306,10 @@ class YoloDetect(object):
         infer_img = np.expand_dims(infer_img, axis=0)  # add batch dimension
         start_time = time.time()
         outputs = self.rknn_lite.inference(inputs=[infer_img])
+        
+        boxes, classes, scores = self._postprocess(outputs)
         self.infertime = (time.time() - start_time)*1000
         print_info(f'Inference time: {self.infertime} ms')
-
-        boxes, classes, scores = self._postprocess(outputs)
         return boxes, classes, scores
     
     def info(self):
